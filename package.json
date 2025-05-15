@@ -7,7 +7,7 @@
     "vscode": "^1.85.0"
   },
   "activationEvents": [
-    "*"
+    "onCommand:extension.showUsageTime"
   ],
   "main": "./out/extension.js",
   "scripts": {
@@ -23,6 +23,10 @@
     "eslint": "^8.56.0",
     "typescript": "^5.3.0"
   },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/BradleyLauweres/vscode-timetracker"
+},
   "contributes": {
     "commands": [
       {
