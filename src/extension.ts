@@ -7,7 +7,6 @@ export function activate(context: vscode.ExtensionContext) {
   sessionStart = Date.now();
   const TOTAL_KEY = 'totalTime';
 
-  // Save session time every minute
   interval = setInterval(() => {
     saveTime(context);
   }, 60 * 1000);
@@ -34,9 +33,8 @@ function saveTime(context: vscode.ExtensionContext) {
 
 export function deactivate() {
   clearInterval(interval);
-  // Note: 'context' is not available here, so use workaround below:
   try {
-    const globalState = (vscode.extensions.getExtension('yourPublisher.vscode-usage-tracker') as any)?.exports?.context?.globalState;
+    const globalState = (vscode.extensions.getExtension('BradleyLauweres.vscode-timetracker') as any)?.exports?.context?.globalState;
     if (globalState) {
       const duration = Date.now() - sessionStart;
       const previous = globalState.get('totalTime', 0) as number;
